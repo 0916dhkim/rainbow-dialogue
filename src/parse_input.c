@@ -42,5 +42,7 @@ char *get_next_dialog(char *s, int maxlinelength, int maxlinecount) {
         // because EOF is reached.
         return NULL;
     }
+    // Null terminate and return.
+    *(cur++) = '\0';
     return s;
 }
