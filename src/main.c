@@ -5,7 +5,7 @@
 #include <format_dialog.h>
 #include <rotate_color.h>
 
-#define MAX_LINE_LENGTH 24
+#define MAX_LINE_LENGTH 40
 #define MAX_LINE_COUNT  30
 #define MAX_KAOMOJI_COUNT 200
 
@@ -30,13 +30,14 @@ int main(int argc, char **argv) {
     char *input_line = calloc(MAX_LINE_LENGTH * MAX_LINE_COUNT, sizeof(char));
     char *formatted_line = calloc((MAX_LINE_LENGTH + 5) * MAX_LINE_COUNT, sizeof(char));
     i = 0;
+    rotate_color();
     while (get_next_dialog(input_line, MAX_LINE_LENGTH, MAX_LINE_COUNT) != NULL) {
-        rotate_color();
         printf(
             "%s\n%s\n\n",
             kaomojis[i],
             box_message(formatted_line, input_line, MAX_LINE_LENGTH, MAX_LINE_COUNT)
         );
+        rotate_color();
         i = (i + 1) % kaomoji_count;
     }
     free(input_line);
