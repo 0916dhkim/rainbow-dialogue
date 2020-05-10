@@ -2,12 +2,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char *get_next_dialog(char *s, int maxlinelength, int maxlinecount) {
+char *get_next_dialogue(char *s, int maxlinelength, int maxlinecount) {
     // Start with an empty string.
     char *cur = s;
     *cur = '\0';
 
-    int end_of_dialog = 0; // End of dialog reached. (newline or EOF)
+    int end_of_dialogue = 0; // End of dialogue reached. (newline or EOF)
     int end_of_file = 0; // EOF reached.
     int linecount;
     for (linecount = 0; linecount < maxlinecount; linecount++) {
@@ -17,12 +17,12 @@ char *get_next_dialog(char *s, int maxlinelength, int maxlinecount) {
             char c = (char) fgetc(stdin);
             // Handle newline and EOF
             if (c == '\n') {
-                end_of_dialog = 1;
+                end_of_dialogue = 1;
                 end_of_file = 0;
                 break;
             }
             if (c == EOF){
-                end_of_dialog = 1;
+                end_of_dialogue = 1;
                 end_of_file = 1;
                 break;
             }
@@ -30,10 +30,10 @@ char *get_next_dialog(char *s, int maxlinelength, int maxlinecount) {
             *(cur++) = c;
         }
 
-        if (end_of_dialog) {
+        if (end_of_dialogue) {
             break;
         }
-        // Wrap dialog line.
+        // Wrap dialogue line.
         *(cur++) = '\n';
     }
 

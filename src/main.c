@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <parse_kaomoji.h>
 #include <parse_input.h>
-#include <format_dialog.h>
+#include <format_dialogue.h>
 #include <rotate_color.h>
 
 #define MAX_LINE_LENGTH 40
@@ -12,7 +12,7 @@
 int main(int argc, char **argv) {
     // Check for command line arguments 
     if (argc < 2) {
-        printf("Usage : rainbow-dialog <kaomoji-filename>\n");
+        printf("Usage : rainbow-dialogue <kaomoji-filename>\n");
         return 1;
     }
 
@@ -31,7 +31,7 @@ int main(int argc, char **argv) {
     char *formatted_line = calloc((MAX_LINE_LENGTH + 5) * MAX_LINE_COUNT, sizeof(char));
     i = 0;
     rotate_color();
-    while (get_next_dialog(input_line, MAX_LINE_LENGTH, MAX_LINE_COUNT) != NULL) {
+    while (get_next_dialogue(input_line, MAX_LINE_LENGTH, MAX_LINE_COUNT) != NULL) {
         printf(
             "%s\n%s\n\n",
             kaomojis[i],
