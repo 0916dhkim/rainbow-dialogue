@@ -11,6 +11,7 @@ int parse_kaomoji(char **target, char *filename, int max_kaomoji_count, int max_
         if (c == '\n') {
             // Ignore newline.
             target[kaomoji_count++][line_position] = '\0';
+            line_position = 0;
             continue;
         }
         if (target[kaomoji_count] == NULL) {
