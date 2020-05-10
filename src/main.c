@@ -3,6 +3,7 @@
 #include <parse_kaomoji.h>
 #include <parse_input.h>
 #include <format_dialog.h>
+#include <rotate_color.h>
 
 #define MAX_LINE_LENGTH 24
 #define MAX_LINE_COUNT  30
@@ -30,6 +31,7 @@ int main(int argc, char **argv) {
     char *formatted_line = calloc((MAX_LINE_LENGTH + 5) * MAX_LINE_COUNT, sizeof(char));
     i = 0;
     while (get_next_dialog(input_line, MAX_LINE_LENGTH, MAX_LINE_COUNT) != NULL) {
+        rotate_color();
         printf(
             "%s\n%s\n\n",
             kaomojis[i],
