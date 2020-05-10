@@ -61,4 +61,5 @@ char *box_message(char *out, char *original, int maxlinelength, int maxlinecount
     // Bottom border.
     cur = concat_straight_line(cur, '#', maxlinelength + 4);
     *(cur++) = '\0';
+    return out;
 }
